@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace BackgroundServiceExceptions.Core
@@ -25,7 +24,6 @@ namespace BackgroundServiceExceptions.Core
 
         public override async Task DoWorkAsync()
         {
-            Thread.Sleep(10_000);
             Directory.CreateDirectory(workerOptions.OutputDirectory);
 
             var time = timeService.GetDateTime();

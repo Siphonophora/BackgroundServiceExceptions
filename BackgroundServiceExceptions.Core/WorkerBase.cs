@@ -45,9 +45,8 @@ namespace BackgroundServiceExceptions.Core
         [SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "We catch anything and alert instead of rethrowing")]
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            ////await Task.Delay(10).ConfigureAwait(false); // Runs Async - Initalization completes very fast.
-            ////await Task.CompletedTask.ConfigureAwait(false); // Runs Syncronosly / initalization takes 10 seconds.
-            await Task.Yield(); // Runs Async - Initalization completes very fast.
+            // Await right away so Host Startup can continue.
+            await Task.Delay(10).ConfigureAwait(false);
 
             try
             {
